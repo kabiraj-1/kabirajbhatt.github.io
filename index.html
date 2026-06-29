@@ -1,662 +1,952 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- =========================
-         BASIC META
-    ========================== -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kabiraj Bhatt · Civil · Web · AI</title>
+  <!-- Google Fonts + Font Awesome (for icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>Kabiraj Bhatt | Civil Engineering | Web Developer | AI & Digital Marketing</title>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0b1b2f;
+      transition: background 0.25s, color 0.25s;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
 
-    <meta name="description" content="Official portfolio of Kabiraj Bhatt from Nepal. Civil Engineering, Web Development, AI Tools, SEO and Digital Marketing.">
+    body.dark {
+      background: #0b1b2f;
+      color: #e8edf5;
+    }
 
-    <meta name="keywords" content="Kabiraj Bhatt, Civil Engineering, Portfolio, Nepal, Web Developer, SEO, AI, Digital Marketing">
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    <meta name="author" content="Kabiraj Bhatt">
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-    <meta name="robots" content="index,follow">
+    /* ----- buttons / cards ----- */
+    .btn {
+      display: inline-block;
+      background: #1e3a6f;
+      color: #fff;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 6px 14px rgba(30, 58, 111, 0.25);
+    }
 
-    <!-- =========================
-         OPEN GRAPH
-    ========================== -->
+    .btn:hover {
+      background: #14305a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(30, 58, 111, 0.3);
+    }
 
-    <meta property="og:title" content="Kabiraj Bhatt">
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #1e3a6f;
+      color: #1e3a6f;
+      box-shadow: none;
+    }
 
-    <meta property="og:description" content="Civil Engineering | Web Developer | AI & Digital Marketing">
+    .btn-outline:hover {
+      background: #1e3a6f;
+      color: #fff;
+    }
 
-    <meta property="og:type" content="website">
+    body.dark .btn-outline {
+      border-color: #a0c4ff;
+      color: #a0c4ff;
+    }
 
-    <meta property="og:url" content="https://kabirajbhatt.com.np">
+    body.dark .btn-outline:hover {
+      background: #a0c4ff;
+      color: #0b1b2f;
+    }
 
-    <meta property="og:image" content="images/profile.jpg">
+    .btn-secondary {
+      background: #d4e2fc;
+      color: #0b1b2f;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
 
-    <!-- =========================
-         TWITTER
-    ========================== -->
+    .btn-secondary:hover {
+      background: #bdd4f7;
+    }
 
-    <meta name="twitter:card" content="summary_large_image">
+    body.dark .btn-secondary {
+      background: #2a4a7a;
+      color: #fff;
+    }
 
-    <meta name="twitter:title" content="Kabiraj Bhatt">
+    body.dark .btn-secondary:hover {
+      background: #1e3a6f;
+    }
 
-    <meta name="twitter:description" content="Official Portfolio Website">
+    /* ----- header ----- */
+    .header {
+      padding: 1.2rem 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      transition: background 0.3s;
+    }
 
-    <meta name="twitter:image" content="images/profile.jpg">
+    body.dark .header {
+      background: rgba(11, 27, 47, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
 
-    <!-- =========================
-         FAVICON
-    ========================== -->
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-    <link rel="icon" href="favicon/favicon.ico">
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
 
-    <!-- =========================
-         CSS
-    ========================== -->
+    .logo span {
+      color: #1e3a6f;
+    }
 
-    <link rel="stylesheet" href="css/style.css">
+    body.dark .logo span {
+      color: #8bb3f0;
+    }
 
-    <!-- =========================
-         GOOGLE FONTS
-    ========================== -->
+    .navbar ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-weight: 500;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    .navbar ul li a {
+      position: relative;
+      padding: 0.3rem 0;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    .navbar ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1e3a6f;
+      transition: 0.25s;
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    .navbar ul li a:hover::after {
+      width: 100%;
+    }
 
+    body.dark .navbar ul li a::after {
+      background: #8bb3f0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ----- hero ----- */
+    .hero {
+      padding: 4rem 0 5rem;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h4 {
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #1e3a6f;
+      margin-bottom: 0.5rem;
+    }
+
+    body.dark .hero-text h4 {
+      color: #8bb3f0;
+    }
+
+    .hero-text h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text h2 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #2a4a7a;
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+
+    body.dark .hero-text h2 {
+      color: #b8d0f0;
+    }
+
+    .hero-text p {
+      max-width: 480px;
+      font-size: 1.05rem;
+      opacity: 0.8;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 30px;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      background: #d4e2fc;
+      transition: 0.3s;
+    }
+
+    body.dark .hero-image img {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ----- section title ----- */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title p {
+      font-size: 1.1rem;
+      opacity: 0.6;
+    }
+
+    /* ----- about ----- */
+    .about {
+      padding: 5rem 0;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    body.dark .about {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+
+    .about-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem 1.5rem;
+      margin-top: 1.8rem;
+    }
+
+    .about-info div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-info strong {
+      font-weight: 600;
+      font-size: 0.8rem;
+      opacity: 0.5;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ----- skills ----- */
+    .skills {
+      padding: 5rem 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .skill-card {
+      background: #fff;
+      padding: 1.8rem 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      transition: 0.25s;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    body.dark .skill-card {
+      background: #142b44;
+      border-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .skill-card h3 {
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .progress {
+      background: #e2e8f0;
+      height: 8px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    body.dark .progress {
+      background: #2b405a;
+    }
+
+    .progress div {
+      height: 100%;
+      background: #1e3a6f;
+      border-radius: 20px;
+      width: 0%;
+    }
+
+    body.dark .progress div {
+      background: #8bb3f0;
+    }
+
+    /* ----- projects & services ----- */
+    .projects,
+    .services {
+      padding: 5rem 0;
+    }
+
+    .projects-grid,
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card,
+    .service-card {
+      background: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+      transition: 0.3s;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    body.dark .project-card,
+    body.dark .service-card {
+      background: #142b44;
+      border-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .project-card:hover,
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .project-card h3,
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-weight: 600;
+      color: #1e3a6f;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .project-card a:hover {
+      border-bottom-color: #1e3a6f;
+    }
+
+    body.dark .project-card a {
+      color: #8bb3f0;
+    }
+
+    body.dark .project-card a:hover {
+      border-bottom-color: #8bb3f0;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+    }
+
+    /* ----- contact ----- */
+    .contact {
+      padding: 5rem 0;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    body.dark .contact {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.6rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .social-links a {
+      background: #e8edf5;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    body.dark .social-links a {
+      background: #1f3752;
+      color: #d4e2fc;
+    }
+
+    .social-links a:hover {
+      background: #1e3a6f;
+      color: #fff;
+    }
+
+    body.dark .social-links a:hover {
+      background: #8bb3f0;
+      color: #0b1b2f;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.9rem 1.2rem;
+      border-radius: 30px;
+      border: 1px solid #d4e2fc;
+      background: #fff;
+      font-family: inherit;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    body.dark .contact-form input,
+    body.dark .contact-form textarea {
+      background: #142b44;
+      border-color: #2a4a7a;
+      color: #e8edf5;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #1e3a6f;
+      box-shadow: 0 0 0 3px rgba(30, 58, 111, 0.15);
+    }
+
+    body.dark .contact-form input:focus,
+    body.dark .contact-form textarea:focus {
+      border-color: #8bb3f0;
+    }
+
+    .contact-form .btn {
+      align-self: flex-start;
+    }
+
+    /* ----- footer ----- */
+    .footer {
+      padding: 3rem 0 2.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    body.dark .footer {
+      border-top-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .footer h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      margin: 1.2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-social a {
+      font-weight: 500;
+      opacity: 0.6;
+      transition: 0.2s;
+    }
+
+    .footer-social a:hover {
+      opacity: 1;
+    }
+
+    .copyright {
+      opacity: 0.5;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    /* ----- back to top ----- */
+    #backToTop {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      background: #1e3a6f;
+      color: #fff;
+      border: none;
+      width: 52px;
+      height: 52px;
+      border-radius: 60px;
+      font-size: 1.6rem;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: 0.25s;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #backToTop:hover {
+      background: #14305a;
+      transform: translateY(-4px);
+    }
+
+    body.dark #backToTop {
+      background: #2a4a7a;
+    }
+
+    /* ----- responsive ----- */
+    @media (max-width: 992px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image img {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-info {
+        justify-items: center;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.06);
+        position: absolute;
+        top: 80px;
+        left: 1rem;
+        right: 1rem;
+        gap: 1.2rem;
+        text-align: center;
+      }
+
+      body.dark .navbar ul {
+        background: #142b44;
+      }
+
+      .navbar ul.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+
+      .about-info {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- ===========================
-HEADER
-=========================== -->
-
-<header class="header">
-
+  <!-- header -->
+  <header class="header">
     <div class="container">
-
-        <a href="#" class="logo">
-            Kabiraj<span>.</span>
-        </a>
-
-        <nav class="navbar">
-
-            <ul>
-
-                <li><a href="#home">Home</a></li>
-
-                <li><a href="#about">About</a></li>
-
-                <li><a href="#skills">Skills</a></li>
-
-                <li><a href="#projects">Projects</a></li>
-
-                <li><a href="#services">Services</a></li>
-
-                <li><a href="#contact">Contact</a></li>
-
-            </ul>
-
-        </nav>
-
-        <div class="header-right">
-
-            <button id="theme-toggle">
-
-                🌙
-
-            </button>
-
-            <button class="menu-btn">
-
-                ☰
-
-            </button>
-
-        </div>
-
+      <a href="#" class="logo">Kabiraj<span>.</span></a>
+      <nav class="navbar">
+        <ul id="navList">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <button id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
     </div>
+  </header>
 
-</header>
+  <!-- hero -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h4>Hello, I'm</h4>
+        <h1>Kabiraj Bhatt</h1>
+        <h2>Civil Engineering · MBS · Web · AI &amp; Digital Marketing</h2>
+        <p>Welcome to my portfolio. I build modern web experiences, explore AI, share civil engineering knowledge, and help people through technology.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View Portfolio</a>
+          <a href="#" class="btn btn-outline" download>Download CV</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://ui-avatars.com/api/?name=Kabiraj+Bhatt&size=420&background=1e3a6f&color=fff&bold=true&font-size=0.5" alt="Kabiraj Bhatt" />
+      </div>
+    </div>
+  </section>
 
-<!-- ===========================
-HERO SECTION
-=========================== -->
-
-<section class="hero" id="home">
-
-<div class="container hero-container">
-
-<div class="hero-text">
-
-<h4>Hello, I'm</h4>
-
-<h1>Kabiraj Bhatt</h1>
-
-<h2>
-
-Civil Engineering Student<br>
-
-MBS Student<br>
-
-Web Developer<br>
-
-AI & Digital Marketing Enthusiast
-
-</h2>
-
-<p>
-
-Welcome to my official portfolio website.
-
-I enjoy building modern websites,
-
-learning AI,
-
-sharing Civil Engineering knowledge,
-
-and helping people through technology.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#projects" class="btn">
-
-View Portfolio
-
-</a>
-
-<a href="assets/cv/Kabiraj-Bhatt-CV.pdf"
-
-class="btn btn-outline"
-
-download>
-
-Download CV
-
-</a>
-
-<a href="#contact"
-
-class="btn btn-secondary">
-
-Contact Me
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="images/profile.jpg"
-
-alt="Kabiraj Bhatt">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================
-ABOUT SECTION
-=================================== -->
-
-<section id="about" class="about">
-
+  <!-- about -->
+  <section id="about" class="about">
     <div class="container">
-
-        <div class="section-title">
-            <h2>About Me</h2>
-            <p>Know more about me</p>
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Know more about me</p>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://ui-avatars.com/api/?name=Kabiraj+Bhatt&size=400&background=1e3a6f&color=fff&bold=true&font-size=0.5" alt="Kabiraj Bhatt" />
         </div>
-
-        <div class="about-content">
-
-            <div class="about-image">
-                <img src="images/profile.jpg" alt="Kabiraj Bhatt">
-            </div>
-
-            <div class="about-text">
-
-                <h3>Hi, I'm Kabiraj Bhatt</h3>
-
-                <p>
-                    I am from Nepal and currently pursuing an MBS degree.
-                    I have appeared in the final semester examination of
-                    Diploma in Civil Engineering (CTEVT).
-                </p>
-
-                <p>
-                    I enjoy building modern websites, exploring Artificial
-                    Intelligence, Digital Marketing, SEO and creating useful
-                    online resources for students and professionals.
-                </p>
-
-                <div class="about-info">
-
-                    <div>
-                        <strong>Name</strong>
-                        <span>Kabiraj Bhatt</span>
-                    </div>
-
-                    <div>
-                        <strong>Country</strong>
-                        <span>Nepal</span>
-                    </div>
-
-                    <div>
-                        <strong>Email</strong>
-                        <span>9774690123@gmail.com</span>
-                    </div>
-
-                    <div>
-                        <strong>Status</strong>
-                        <span>Available for Freelance</span>
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="about-text">
+          <h3>Hi, I'm Kabiraj Bhatt</h3>
+          <p>I am from Nepal and currently pursuing an MBS degree. I have appeared in the final semester examination of Diploma in Civil Engineering (CTEVT).</p>
+          <p>I enjoy building modern websites, exploring Artificial Intelligence, Digital Marketing, SEO and creating useful online resources for students and professionals.</p>
+          <div class="about-info">
+            <div><strong>Name</strong><span>Kabiraj Bhatt</span></div>
+            <div><strong>Country</strong><span>Nepal</span></div>
+            <div><strong>Email</strong><span>9774690123@gmail.com</span></div>
+            <div><strong>Status</strong><span>Freelance available</span></div>
+          </div>
         </div>
-
+      </div>
     </div>
+  </section>
 
-</section>
-
-<!-- ===================================
-SKILLS
-=================================== -->
-
-<section id="skills" class="skills">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Skills</h2>
-
-<p>Technologies I work with</p>
-
-</div>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-
-<h3>HTML5</h3>
-
-<div class="progress">
-<div style="width:95%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>CSS3</h3>
-
-<div class="progress">
-<div style="width:90%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>JavaScript</h3>
-
-<div class="progress">
-<div style="width:85%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Git & GitHub</h3>
-
-<div class="progress">
-<div style="width:90%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>SEO</h3>
-
-<div class="progress">
-<div style="width:88%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Digital Marketing</h3>
-
-<div class="progress">
-<div style="width:92%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>AI Tools</h3>
-
-<div class="progress">
-<div style="width:90%"></div>
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Cloudflare</h3>
-
-<div class="progress">
-<div style="width:85%"></div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================
-PROJECTS
-=================================== -->
-
-<section id="projects" class="projects">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Featured Projects</h2>
-
-<p>Some of my recent work</p>
-
-</div>
-
-<div class="projects-grid">
-
-<div class="project-card">
-
-<h3>Personal Portfolio</h3>
-
-<p>
-Modern responsive personal portfolio website.
-</p>
-
-<a href="#">View Project</a>
-
-</div>
-
-<div class="project-card">
-
-<h3>CV Maker</h3>
-
-<p>
-Generate professional CVs with PDF export.
-</p>
-
-<a href="#">View Project</a>
-
-</div>
-
-<div class="project-card">
-
-<h3>Civil Engineering Notes</h3>
-
-<p>
-Free study materials for Diploma Engineering students.
-</p>
-
-<a href="#">View Project</a>
-
-</div>
-
-<div class="project-card">
-
-<h3>AI Tools Directory</h3>
-
-<p>
-Collection of useful AI tools and resources.
-</p>
-
-<a href="#">View Project</a>
-
-</div>
-
-<div class="project-card">
-
-<h3>Weather App</h3>
-
-<p>
-Responsive weather application using APIs.
-</p>
-
-<a href="#">View Project</a>
-
-</div>
-
-<div class="project-card">
-
-<h3>Digital Marketing Resources</h3>
-
-<p>
-SEO, social media and marketing guides.
-</p>
-
-<a href="#">View Project</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================
-SERVICES SECTION
-=================================== -->
-
-<section id="services" class="services">
-
+  <!-- skills -->
+  <section id="skills" class="skills">
     <div class="container">
-
-        <div class="section-title">
-            <h2>Services</h2>
-            <p>How I can help you</p>
-        </div>
-
-        <div class="services-grid">
-
-            <div class="service-card">
-                <h3>🌐 Website Development</h3>
-                <p>Responsive, fast and modern websites using HTML, CSS and JavaScript.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>📈 SEO Optimization</h3>
-                <p>Improve website visibility and search engine rankings with SEO best practices.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>📱 Digital Marketing</h3>
-                <p>Social media marketing, content strategy and online promotion.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>🤖 AI Consultation</h3>
-                <p>Guidance on AI tools, automation and productivity solutions.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>🛠 Technical Support</h3>
-                <p>Website maintenance, troubleshooting and technical assistance.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>📚 Civil Engineering Resources</h3>
-                <p>Notes, study materials and learning resources for students.</p>
-            </div>
-
-        </div>
-
+      <div class="section-title">
+        <h2>Skills</h2>
+        <p>Technologies I work with</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>HTML5</h3><div class="progress"><div style="width:95%"></div></div></div>
+        <div class="skill-card"><h3>CSS3</h3><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-card"><h3>JavaScript</h3><div class="progress"><div style="width:85%"></div></div></div>
+        <div class="skill-card"><h3>Git &amp; GitHub</h3><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-card"><h3>SEO</h3><div class="progress"><div style="width:88%"></div></div></div>
+        <div class="skill-card"><h3>Digital Marketing</h3><div class="progress"><div style="width:92%"></div></div></div>
+        <div class="skill-card"><h3>AI Tools</h3><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-card"><h3>Cloudflare</h3><div class="progress"><div style="width:85%"></div></div></div>
+      </div>
     </div>
+  </section>
 
-</section>
-
-<!-- ===================================
-CONTACT
-=================================== -->
-
-<section id="contact" class="contact">
-
+  <!-- projects -->
+  <section id="projects" class="projects">
     <div class="container">
-
-        <div class="section-title">
-            <h2>Contact Me</h2>
-            <p>Let's work together</p>
-        </div>
-
-        <div class="contact-wrapper">
-
-            <div class="contact-info">
-
-                <h3>Get In Touch</h3>
-
-                <p><strong>Email:</strong> 9774690123@gmail.com</p>
-
-                <p><strong>Country:</strong> Nepal</p>
-
-                <p><strong>Status:</strong> Available for Freelance</p>
-
-                <div class="social-links">
-
-                    <a href="https://github.com/kabiraj-1" target="_blank">GitHub</a>
-
-                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-
-                    <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-
-                    <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
-
-                </div>
-
-            </div>
-
-            <form class="contact-form">
-
-                <input
-                    type="text"
-                    placeholder="Your Name"
-                    required>
-
-                <input
-                    type="email"
-                    placeholder="Your Email"
-                    required>
-
-                <input
-                    type="text"
-                    placeholder="Subject">
-
-                <textarea
-                    rows="6"
-                    placeholder="Your Message"></textarea>
-
-                <button
-                    type="submit"
-                    class="btn">
-
-                    Send Message
-
-                </button>
-
-            </form>
-
-        </div>
-
+      <div class="section-title">
+        <h2>Featured Projects</h2>
+        <p>Some of my recent work</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card"><h3>Personal Portfolio</h3><p>Modern responsive personal portfolio website.</p><a href="#">View Project →</a></div>
+        <div class="project-card"><h3>CV Maker</h3><p>Generate professional CVs with PDF export.</p><a href="#">View Project →</a></div>
+        <div class="project-card"><h3>Civil Engineering Notes</h3><p>Free study materials for Diploma students.</p><a href="#">View Project →</a></div>
+        <div class="project-card"><h3>AI Tools Directory</h3><p>Collection of useful AI tools and resources.</p><a href="#">View Project →</a></div>
+        <div class="project-card"><h3>Weather App</h3><p>Responsive weather application using APIs.</p><a href="#">View Project →</a></div>
+        <div class="project-card"><h3>Digital Marketing Resources</h3><p>SEO, social media and marketing guides.</p><a href="#">View Project →</a></div>
+      </div>
     </div>
+  </section>
 
-</section>
-
-<!-- ===================================
-FOOTER
-=================================== -->
-
-<footer class="footer">
-
+  <!-- services -->
+  <section id="services" class="services">
     <div class="container">
-
-        <h3>Kabiraj Bhatt</h3>
-
-        <p>
-            Civil Engineering • Web Development • AI • Digital Marketing
-        </p>
-
-        <div class="footer-social">
-
-            <a href="https://github.com/kabiraj-1" target="_blank">GitHub</a>
-
-            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-
-            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-
-            <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
-
-        </div>
-
-        <p class="copyright">
-
-            © 2026 Kabiraj Bhatt
-
-            <br>
-
-            Built with HTML, CSS & JavaScript
-
-            <br>
-
-            Hosted on GitHub Pages
-
-        </p>
-
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>How I can help you</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card"><h3><i class="fas fa-globe" style="margin-right:8px;"></i> Website Development</h3><p>Responsive, fast and modern websites using HTML, CSS and JavaScript.</p></div>
+        <div class="service-card"><h3><i class="fas fa-chart-line" style="margin-right:8px;"></i> SEO Optimization</h3><p>Improve website visibility and search engine rankings with best practices.</p></div>
+        <div class="service-card"><h3><i class="fas fa-bullhorn" style="margin-right:8px;"></i> Digital Marketing</h3><p>Social media marketing, content strategy and online promotion.</p></div>
+        <div class="service-card"><h3><i class="fas fa-robot" style="margin-right:8px;"></i> AI Consultation</h3><p>Guidance on AI tools, automation and productivity solutions.</p></div>
+        <div class="service-card"><h3><i class="fas fa-tools" style="margin-right:8px;"></i> Technical Support</h3><p>Website maintenance, troubleshooting and technical assistance.</p></div>
+        <div class="service-card"><h3><i class="fas fa-book" style="margin-right:8px;"></i> Civil Engineering Resources</h3><p>Notes, study materials and learning resources for students.</p></div>
+      </div>
     </div>
+  </section>
 
-</footer>
+  <!-- contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Let's work together</p>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p><i class="fas fa-envelope" style="width:20px;"></i> <strong>Email:</strong> 9774690123@gmail.com</p>
+          <p><i class="fas fa-map-pin" style="width:20px;"></i> <strong>Country:</strong> Nepal</p>
+          <p><i class="fas fa-clock" style="width:20px;"></i> <strong>Status:</strong> Available for Freelance</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+          </div>
+        </div>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="text" placeholder="Subject" />
+          <textarea rows="6" placeholder="Your Message"></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-<!-- ===================================
-BACK TO TOP
-=================================== -->
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <h3>Kabiraj Bhatt</h3>
+      <p>Civil Engineering · Web Development · AI · Digital Marketing</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+      </div>
+      <p class="copyright">© 2026 Kabiraj Bhatt <br> Built with HTML, CSS &amp; JavaScript · Hosted on GitHub Pages</p>
+    </div>
+  </footer>
 
-<button id="backToTop" title="Go to top">
+  <!-- back to top -->
+  <button id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-    ↑
+  <script>
+    (function() {
+      // dark mode
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const icon = toggle.querySelector('i');
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark');
+        icon.className = 'fas fa-sun';
+      }
 
-</button>
+      toggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
 
-<!-- ===================================
-JAVASCRIPT
-=================================== -->
+      // mobile menu
+      const menuBtn = document.getElementById('menuBtn');
+      const navList = document.getElementById('navList');
+      menuBtn.addEventListener('click', () => {
+        navList.classList.toggle('open');
+        const isOpen = navList.classList.contains('open');
+        menuBtn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
 
-<script src="js/main.js"></script>
+      // close menu on link click (mobile)
+      document.querySelectorAll('.navbar ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+          navList.classList.remove('open');
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
 
+      // back to top button
+      const backBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backBtn.classList.add('visible');
+        } else {
+          backBtn.classList.remove('visible');
+        }
+      });
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // smooth scroll for anchor links (optional)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
 </body>
-
 </html>
